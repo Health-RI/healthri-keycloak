@@ -18,33 +18,33 @@
                             <img src="${url.resourcesPath}/img/hri-dataportaal-logo.png" alt="logo" />
                         </div>
                         <div class="title">
-                            <h2>Inloggen</h2>
+                            <h2>${msg("loginTitle")}</h2>
                         </div>
                         <form action="${url.loginAction}" method="post">
                             <div class="form-group">
-                                <label for="username">Gebruikersnaam</label>
-                                <input class="form-control" placeholder="Gebruikersnaam" autofocus="" type="text" id="username" name="username" required>
+                                <label for="username">${msg("usernameLabel")}</label>
+                                <input class="form-control" placeholder="${msg("usernameLabel")}" autofocus="" type="text" id="username" name="username" required>
                             </div>
                             <div class="form-group">
-                                <label for="password">Wachtwoord</label>
-                                <input type="password" class="form-control" placeholder="Wachtwoord" autocomplete="off" id="password" name="password" required>
+                                <label for="password">${msg("passwordLabel")}</label>
+                                <input type="password" class="form-control" placeholder="${msg("passwordLabel")}" autocomplete="off" id="password" name="password" required>
                             </div>
                             <div class="form-group">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe" value="true">
                                     <label class="form-check-label" for="rememberMe">
-                                        Onthoud mijn login
+                                        ${msg("rememberMeLabel")}
                                     </label>
                                 </div>
                             </div>
-                            <button class="btn btn-primary" name="login" id="kc-login" type="submit" value="login">Inloggen</button>
+                            <button class="btn btn-primary" name="login" id="kc-login" type="submit" value="login">${msg("loginButton")}</button>
                         </form>
                     </div>
                     <#if realm.identityProviders?? && realm.identityProviders?size gt 0>
                     <div class="card">
                         <div class="title">
-                            <h2>Inloggen</h2>
-                            <p>met een extern account</p>
+                            <h2>${msg("externalLoginTitle")}</h2>
+                            <p>${msg("externalLoginSubtitle")}</p>
                         </div>
                         <ul class="accounts-list">
                             <#list realm.identityProviders as identityProvider>
