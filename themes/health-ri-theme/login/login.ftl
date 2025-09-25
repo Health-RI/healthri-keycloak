@@ -20,7 +20,7 @@
                         <div class="title">
                             <h2>${msg("loginTitle")}</h2>
                         </div>
-                        <form action="${url.loginAction}" method="post">
+                        <form id="login-form" action="${url.loginAction}" method="post">
                             <div class="form-group">
                                 <label for="username">${msg("usernameLabel")}</label>
                                 <input class="form-control" placeholder="${msg("usernameLabel")}" autofocus="" type="text" id="username" name="username" required>
@@ -37,7 +37,10 @@
                                     </label>
                                 </div>
                             </div>
-                            <button class="btn btn-primary" name="login" id="kc-login" type="submit" value="login">${msg("loginButton")}</button>
+                            <button class="btn btn-primary" name="login" id="kc-login" type="submit" value="login" data-please-wait="${msg("pleaseWait")}">
+                                <span class="loader" id="login-loader" style="display: none;"></span>
+                                <span id="login-text">${msg("loginButton")}</span>
+                            </button>
                         </form>
                     </div>
                     <#if realm.identityProviders?? && realm.identityProviders?size gt 0>
@@ -70,6 +73,10 @@
                     </div>
                     </#if>
                 </div>
+            </div>
+            <!-- Temporary visible spinner for styling -->
+            <div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+                <span class="loader"></span>
             </div>
         </body>
     </#if>
