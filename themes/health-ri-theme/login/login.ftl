@@ -40,28 +40,28 @@
                             <button class="btn btn-primary" name="login" id="kc-login" type="submit" value="login">${msg("loginButton")}</button>
                         </form>
                     </div>
-                    <#if realm.identityProviders?? && realm.identityProviders?size gt 0>
+                    <#if social?? && social.providers?? && social.providers?size gt 0>
                     <div class="card">
                         <div class="title">
                             <h2>${msg("externalLoginTitle")}</h2>
                             <p>${msg("externalLoginSubtitle")}</p>
                         </div>
                         <ul class="accounts-list">
-                            <#list realm.identityProviders as identityProvider>
+                            <#list social.providers as p>
                                 <li class="account">
-                                    <a href="${identityProvider.loginUrl}">
+                                    <a href="${p.loginUrl}">
                                         <div class="account-link">
-                                            <#if identityProvider.alias == "azuread">
-                                                <img src="${url.resourcesPath}/img/azure.png" alt="${identityProvider.displayName}" />
-                                            <#elseif identityProvider.alias == "google">
-                                                <img src="${url.resourcesPath}/img/google.png" alt="${identityProvider.displayName}" />
-                                            <#elseif identityProvider.alias == "microsoft">
-                                                <img src="${url.resourcesPath}/img/microsoft.png" alt="${identityProvider.displayName}" />
+                                            <#if p.alias == "azuread">
+                                                <img src="${url.resourcesPath}/img/azure.png" alt="${p.displayName}" />
+                                            <#elseif p.alias == "google">
+                                                <img src="${url.resourcesPath}/img/google.png" alt="${p.displayName}" />
+                                            <#elseif p.alias == "microsoft">
+                                                <img src="${url.resourcesPath}/img/microsoft.png" alt="${p.displayName}" />
                                             <#else>
                                                 <#-- Fallback for other providers -->
-                                                <p>${identityProvider.displayName}</p>
+                                                <p>${p.displayName}</p>
                                             </#if>
-                                            <p>${identityProvider.displayName}</p>
+                                            <p>${p.displayName}</p>
                                         </div>
                                     </a>
                                 </li>
