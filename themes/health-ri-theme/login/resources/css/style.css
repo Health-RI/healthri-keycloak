@@ -254,19 +254,77 @@ label {
   font-size: 1em;
 }
 
-.alert-danger {
-  color: var(--hri-action-blue);
-  background-color: #ff73002d;
-}
-
+/* Enhanced Alert Styles */
 .alert {
   position: relative;
   padding: 1em 1.25em;
   border-radius: 0.66em;
   margin-top: 1.66em;
-  line-height: 2em;
+  line-height: 1.4;
   font-size: 1em;
+  border: 1px solid transparent;
+  animation: slideIn 0.3s ease-in-out;
 }
+
+.alert-danger,
+.alert-error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeaa7;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-info {
+  color: var(--hri-action-blue);
+  background-color: var(--hri-lightest-blue);
+  border-color: var(--hri-lighter-blue);
+}
+
+.error-text {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.25em;
+}
+
+.error-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Input error styles */
+.form-control.error {
+  border-color: #dc3545;
+  background-color: #fff5f5;
+}
+
+.form-control.error:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.10rem rgba(220, 53, 69, 0.25);
+}
+
+/* Animation for error messages */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
 button {
   margin-top: 2.25em;
@@ -438,20 +496,6 @@ ul {
   float: right;
   margin-top: 0.25em;
   color: #696969;
-}
-
-.alert-danger {
-  color: var(--hri-action-blue);
-  background-color: #ff73002d;
-}
-
-.alert {
-  position: relative;
-  padding: 1em 1.25em;
-  border-radius: 0.66em;
-  margin-top: 1.66em;
-  line-height: 2em;
-  font-size: 1em;
 }
 
 @media only screen and (max-height: 1090px) {

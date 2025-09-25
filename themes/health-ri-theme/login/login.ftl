@@ -20,14 +20,38 @@
                         <div class="title">
                             <h2>${msg("loginTitle")}</h2>
                         </div>
-                        <form action="${url.loginAction}" method="post">
+                        
+                        <#-- Error message display -->
+                        <#if message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
+                            <div id="input-error" class="alert alert-${message.type}" role="alert">
+                                <span class="error-text">${kcSanitize(message.summary)?no_esc}</span>
+                            </div>
+                        </#if>
+                        
+                        <form action="${url.loginAction}" method="post" id="kc-form-login">
                             <div class="form-group">
                                 <label for="username">${msg("usernameLabel")}</label>
-                                <input class="form-control" placeholder="${msg("usernameLabel")}" autofocus="" type="text" id="username" name="username" required>
+                                <input class="form-control <#if message?has_content && message.type = 'error'>error</#if>" 
+                                       placeholder="${msg("usernameLabel")}" 
+                                       autofocus="" 
+                                       type="text" 
+                                       id="username" 
+                                       name="username" 
+                                       value="${(login.username!'')}" 
+                                       autocomplete="username"
+                                       aria-describedby="<#if message?has_content && message.type = 'error'>input-error</#if>"
+                                       required>
                             </div>
                             <div class="form-group">
                                 <label for="password">${msg("passwordLabel")}</label>
-                                <input type="password" class="form-control" placeholder="${msg("passwordLabel")}" autocomplete="off" id="password" name="password" required>
+                                <input type="password" 
+                                       class="form-control <#if message?has_content && message.type = 'error'>error</#if>" 
+                                       placeholder="${msg("passwordLabel")}" 
+                                       autocomplete="current-password" 
+                                       id="password" 
+                                       name="password" 
+                                       aria-describedby="<#if message?has_content && message.type = 'error'>input-error</#if>"
+                                       required>
                             </div>
                             <div class="form-group">
                                 <div class="form-check">
