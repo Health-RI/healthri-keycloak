@@ -28,13 +28,3 @@ setTimeout(() => {
 
 // Event listener for resize
 window.addEventListener("resize", handleResize);
-
-// Show loader on form submit
-document.getElementById('login-form').addEventListener('submit', function() {
-  const button = document.getElementById('kc-login');
-  document.getElementById('login-loader').style.display = 'inline-block';
-  document.getElementById('login-text').textContent = button.dataset.pleaseWait;
-  button.disabled = true;
-  // Disable all inputs
-  document.querySelectorAll('#login-form input').forEach(input => input.disabled = true);
-});

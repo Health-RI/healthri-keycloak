@@ -310,7 +310,7 @@ button {
   color: #fff;
   background-color: var(--hri-base);
   border-color: var(--hri-base);
-  box-shadow: 0 0 0 0.15rem rgb(255 114 0 / 50%);
+  box-shadow: 0 0 0 0.15rem rgb(24 61 118 / 50%);
 }
 
 .btn-check:active+.btn-primary,
