@@ -165,7 +165,50 @@ document.addEventListener('DOMContentLoaded', () => {
       passwordInput.focus();
     }
   }, 100);
+  
+  // Language Switcher Enhancement
+  initializeLanguageSwitcher();
 });
+
+// Language Switcher Enhancement
+const initializeLanguageSwitcher = () => {
+  const languageToggle = document.querySelector('.language-toggle');
+  const languageDropdown = document.querySelector('.language-dropdown');
+  
+  if (languageToggle && languageDropdown) {
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!languageDropdown.contains(event.target)) {
+        languageDropdown.classList.remove('open');
+      }
+    });
+    
+    // Toggle dropdown on click
+    languageToggle.addEventListener('click', function(event) {
+      event.stopPropagation();
+      languageDropdown.classList.toggle('open');
+    });
+    
+    // Handle keyboard navigation
+    languageToggle.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        languageDropdown.classList.toggle('open');
+      }
+      if (event.key === 'Escape') {
+        languageDropdown.classList.remove('open');
+      }
+    });
+    
+    // Close on language selection
+    const languageOptions = document.querySelectorAll('.language-option');
+    languageOptions.forEach(function(option) {
+      option.addEventListener('click', function() {
+        languageDropdown.classList.remove('open');
+      });
+    });
+  }
+};
 
 // Initial resize on load
 setTimeout(() => {
