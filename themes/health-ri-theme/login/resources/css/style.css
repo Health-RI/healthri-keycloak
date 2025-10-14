@@ -627,7 +627,7 @@ ul {
   .copyright-notice {
     color: var(--hri-base);
     text-align: left;
-    margin-top: 1.5em;
+    margin-top: 0;
     margin-bottom: 2em;
     min-width: auto !important;
     max-width: 100%;
