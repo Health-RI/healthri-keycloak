@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="username">${msg("email")}</label>
                     <input class="form-control <#if message?has_content && message.type = 'error'>error</#if>" 
-                           placeholder="${msg("email")}" 
+                           placeholder="${msg('email')}" 
                            autofocus="" 
                            type="email" 
                            id="username" 
@@ -38,7 +38,7 @@
                     <label for="password">${msg("passwordLabel")}</label>
                     <input type="password" 
                            class="form-control <#if message?has_content && message.type = 'error'>error</#if>" 
-                           placeholder="${msg("passwordLabel")}" 
+                           placeholder="${msg('passwordLabel')}" 
                            autocomplete="current-password" 
                            id="password" 
                            name="password" 
@@ -70,11 +70,17 @@
                         <a href="${p.loginUrl}" class="social-provider-button">
                             <div class="provider-content">
                                 <#if p.alias == "azuread">
-                                    <img src="${url.resourcesPath}/img/azure.png" alt="${p.displayName}" class="provider-icon" />
+                                    <img src="${url.resourcesPath}/img/entraid.png" alt="${p.displayName}" class="provider-icon" />
                                 <#elseif p.alias == "google">
                                     <img src="${url.resourcesPath}/img/google.png" alt="${p.displayName}" class="provider-icon" />
                                 <#elseif p.alias == "microsoft">
                                     <img src="${url.resourcesPath}/img/microsoft.png" alt="${p.displayName}" class="provider-icon" />
+                                <#elseif p.alias == "eduid">
+                                    <img src="${url.resourcesPath}/img/eduid.png" alt="${p.displayName}" class="provider-icon" />
+                                <#elseif p.alias == "apple">
+                                    <img src="${url.resourcesPath}/img/apple.png" alt="${p.displayName}" class="provider-icon" />
+                                <#elseif p.alias == "github">
+                                    <img src="${url.resourcesPath}/img/github.png" alt="${p.displayName}" class="provider-icon" />
                                 </#if>
                                 <span class="provider-name">${p.displayName}</span>
                             </div>
@@ -93,17 +99,17 @@
             <p class="consent-title">${msg("consentTitle")}</p>
             <p class="consent-text">${msg("consentMessage")}</p>
             <div class="footer-links">
-                <a href="${msg("privacyPolicyLinkUrl")}" target="_blank" rel="noopener noreferrer">${msg("privacyPolicyLinkText")}</a>
+                <a href="${msg('privacyPolicyLinkUrl')}" target="_blank" rel="noopener noreferrer">${msg('privacyPolicyLinkText')}</a>
                 <span class="separator">|</span>
-                <a href="${msg("termsAndConditionsLinkUrl")}" target="_blank" rel="noopener noreferrer">${msg("termsAndConditionsLinkText")}</a>
+                <a href="${msg('termsAndConditionsLinkUrl')}" target="_blank" rel="noopener noreferrer">${msg('termsAndConditionsLinkText')}</a>
                 <span class="separator">|</span>
-                <a href="${msg("cookieLinkUrl")}" target="_blank" rel="noopener noreferrer">${msg("cookieLinkText")}</a>
+                <a href="${msg('cookieLinkUrl')}" target="_blank" rel="noopener noreferrer">${msg('cookieLinkText')}</a>
             </div>
         </div>
     </#if>
     <#if section = "footer">
         <p class="copyright-notice">
-            ${msg("copyrightPrefix")}<a href="${msg("copyrightLinkUrl")}" target="_blank" rel="noopener noreferrer">${msg("copyrightLinkText")}</a>${msg("copyrightSuffix")}
+            ${msg('copyrightPrefix')}<a href="${msg('copyrightLinkUrl')}" target="_blank" rel="noopener noreferrer">${msg('copyrightLinkText')}</a>${msg('copyrightSuffix')}
         </p>
     </#if>
 </@layout.registrationLayout>

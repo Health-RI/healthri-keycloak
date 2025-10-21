@@ -29,7 +29,7 @@
                 <div class="card header-card">
                     <div class="header-content">
                         <#-- Logo on the left -->
-                        <a href="${msg("logoLinkUrl", "https://healthdata.nl")}" class="logo site-logo" rel="home">
+                        <a href="${msg('logoLinkUrl', 'https://healthdata.nl')}" class="logo site-logo" rel="home">
                             <img src="${url.resourcesPath}/img/health-ri-partial-logo.svg" alt="Health-RI" />
                             <span class="site-name">${msg("siteName", "National Health Data Portal")}</span>
                         </a>
@@ -40,7 +40,7 @@
                         <#-- Language Switcher on the right -->
                         <#if realm.internationalizationEnabled && locale.supported?size gt 1>
                             <div class="language-dropdown">
-                                <button class="language-toggle" aria-label="${msg("selectLanguage", "Select language")}">
+                                <button class="language-toggle" aria-label="${msg('selectLanguage', 'Select language')}">
                                     <span class="language-current">${locale.current}</span>
                                     <svg class="language-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                         <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
